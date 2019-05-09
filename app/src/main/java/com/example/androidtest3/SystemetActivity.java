@@ -1,6 +1,7 @@
 package com.example.androidtest3;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -66,6 +68,20 @@ public class SystemetActivity extends AppCompatActivity {
 
         // Set listView's adapter to the new adapter
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent,
+                                    final View view,
+                                    int position /*The position of the view in the adapter.*/,
+                                    long id /* The row id of the item that was clicked */) {
+                Log.d(LOG_TAG, "item clicked, pos:" + position + " id: " + id);
+                Product p = products.get(position);
+                Intent intent = new Intent(SystemetActivity.this, ProductActivity.class);
+                intent.putExtra("product", p);
+                startActivity(intent);
+            }
+        });
     }
 
     private List<Product> jsonToProducts(JSONArray array) {
