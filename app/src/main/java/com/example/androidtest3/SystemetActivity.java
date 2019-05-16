@@ -2,6 +2,8 @@ package com.example.androidtest3;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.*;
 
@@ -130,6 +133,30 @@ public class SystemetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_systemet);
 
+        BottomNavigationView actionBarBottom =
+                (BottomNavigationView) findViewById(R.id.bottom_appbar);
+        actionBarBottom.setOnNavigationItemSelectedListener(new
+                                                                    BottomNavigationView.OnNavigationItemSelectedListener(){
+
+                                                                        @Override
+
+                                                                        public boolean onNavigationItemSelected(@NonNull
+                                                                                                                        MenuItem item){
+
+                                                                            switch(item.getItemId()){
+                                                                                case R.id.action_search:
+                                                                                    showSearchDialog();
+                                                                                    break;
+                                                                                default:
+                                                                                    Log.d(LOG_TAG,"Fungerar!");
+                                                                                    break;
+                                                                            }
+                                                                            return true;
+                                                                        }
+
+                                                                    });
+
+
         // set up faked products
         createFakedProducts();
 
@@ -236,5 +263,6 @@ public class SystemetActivity extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(jsonArrayRequest);
     }
+
 }
 
