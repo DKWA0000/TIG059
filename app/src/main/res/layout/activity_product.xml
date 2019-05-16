@@ -1,28 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="vertical" android:layout_width="match_parent"
-android:layout_height="match_parent">
+android:layout_height="match_parent" android:paddingLeft="32sp"
+    android:paddingRight="32sp"
+    >
 
-<TextView
-    android:id="@+id/product_name"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    <TextView
+       android:id="@+id/rubrik"
+        android:text="Produktinformation"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginBottom="60sp"
+        android:layout_above="@+id/product_name"
+        android:textColor="@color/colorPrimary"
+        android:typeface="serif"
+        />
+
+    <TextView
+        android:id="@+id/product_name"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/product_volume"
+        android:layout_centerVertical="true"
+
+        android:textSize="20sp"
+        android:typeface="serif"
+        android:textColor="@color/colorPrimaryDark"/>
 
 <TextView
     android:id="@+id/product_volume"
+    android:textAlignment="center"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    android:layout_height="wrap_content"
+    android:textSize="20sp"
+    android:layout_above="@+id/product_price"
+    android:textColor="@color/colorPrimaryDark"
+    android:typeface="serif"
+    />
 
 <TextView
     android:id="@+id/product_price"
+    android:textAlignment="center"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    android:layout_height="wrap_content"
+    android:textSize="20sp"
+    android:layout_above="@id/product_alcohol"
+    android:textColor="@color/colorPrimaryDark"
+    android:typeface="serif"/>
 
 <TextView
     android:id="@+id/product_alcohol"
+    android:textAlignment="center"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    android:layout_height="wrap_content"
+    android:textSize="20sp"
+    android:textColor="@color/colorPrimaryDark"
+    android:typeface="serif"/>
+
+    <ImageView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/systembolaget_bild"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+/>
 
 
-</LinearLayout>
+
+</RelativeLayout>

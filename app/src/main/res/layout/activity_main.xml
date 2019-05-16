@@ -1,22 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <ListView
+    android:paddingLeft="16sp"
+    android:paddingRight="16sp" >
+    <ImageView
+
         android:layout_width="wrap_content"
-        android:layout_height="600dp"
-        android:id="@+id/product_list"
-        tools:ignore="MissingConstraints">
-    </ListView>
+        android:layout_height="wrap_content"
+        android:src="@drawable/systembolaget_bild"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70sp"/>
+    <android.support.v7.widget.AppCompatCheckedTextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Är du över 20 år?"
+        android:typeface="serif"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300sp"
+        android:textSize="35dp"/>
+    <android.support.v7.widget.AppCompatCheckedTextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text1"
+        android:layout_centerHorizontal="true"
+        android:text="Om du är under 20 år kommer appen stängas ner."
+        android:textSize="15sp"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
 
-    <CheckBox
-        android:layout_width="156dp"
-        android:layout_height="127dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="608dp" />
 
-</android.support.constraint.ConstraintLayout>
+        />
+
+    <Button
+        android:id="@+id/ja_knapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="50sp"
+        android:layout_marginBottom="150sp"
+        android:background="#ADBBF096"
+        android:shadowColor="#000000"
+        android:text="@string/knapp_ja"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+
+    <Button
+        android:id="@+id/nej_knapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="100sp"
+        android:layout_marginBottom="150sp"
+        android:layout_toEndOf="@+id/ja_knapp"
+        android:background="#DCF59595"
+        android:shadowColor="#CB000000"
+        android:text="@string/knapp_nej"
+
+        android:typeface="serif" />
+
+
+</RelativeLayout>
