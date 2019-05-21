@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.*;
 
@@ -83,6 +84,7 @@ public class SystemetActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private List<Product> jsonToProducts(JSONArray array) {
         Log.d(LOG_TAG, "jsonToProducts()");
@@ -214,6 +216,7 @@ public class SystemetActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "http://rameau.sandklef.com:9090/search/products/all/" + argumentString;
         Log.d(LOG_TAG, "Searching using url: " + url);
+        final String finalArgumentString = argumentString;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 url,
@@ -231,8 +234,24 @@ public class SystemetActivity extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d(LOG_TAG, " cause: " + error.getCause().getMessage());
-            }
+                try {
+                    String argumentString1 = finalArgumentString.replaceAll("^name=.*&",
+                            "Tuborg");
+                    Log.d(LOG_TAG, "searchstring = " + argumentString1);
+                    Log.d(LOG_TAG, " cause: " + error.getCause().getMessage());
+                }
+                catch(NullPointerException n){
+                    Log.d(LOG_TAG, "Tom sträng" + n.getMessage());
+                    Toast toast = Toast.makeText(getApplicationContext(),"sökningen matchar inga resultat",
+                    Toast.LENGTH_SHORT);
+                    toast.setMargin(50,50);
+                    toast.show();
+
+                    showSearchDialog();
+
+                    }
+                }
+
         });
 
         // Add the request to the RequestQueue.
