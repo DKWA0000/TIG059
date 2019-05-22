@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">android test3</string>
+    <string name="knapp_ja">JA</string>
+    <string name="knapp_nej">NEJ</string>
+    <string name="över_20">Är du över 20 år?</string>
+    <string name="actionbar_menu_search">Search</string>
+    <string name="actionbar_menu_favoriter">Favoriter</string>
+    <string name="actionbar_menu_listview">Listview</string>
+    <string name="actionbar_menu_gridview">Gridview</string>
 </resources>
