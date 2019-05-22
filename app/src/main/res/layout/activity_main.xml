@@ -2,11 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:paddingLeft="16sp"
     android:paddingRight="16sp" >
     <ImageView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/systembolaget_bild"
@@ -30,11 +28,7 @@
         android:text="Om du är under 20 år kommer appen stängas ner."
         android:textSize="15sp"
         android:layout_marginLeft="60sp"
-        android:layout_marginRight="60sp"
-
-
-        />
-
+        android:layout_marginRight="60sp"/>
     <Button
         android:id="@+id/ja_knapp"
         android:layout_width="wrap_content"
@@ -42,31 +36,23 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginStart="50sp"
-        android:layout_marginBottom="150sp"
+        android:layout_marginBottom="100sp"
         android:background="#ADBBF096"
         android:shadowColor="#000000"
         android:text="@string/knapp_ja"
         android:textStyle="bold"
-        android:typeface="serif" />
-
-
-
-   
+        android:typeface="serif"/>
     <Button
         android:id="@+id/nej_knapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginStart="100sp"
-        android:layout_marginBottom="150sp"
+        android:layout_marginBottom="100sp"
         android:layout_toEndOf="@+id/ja_knapp"
         android:background="#DCF59595"
         android:shadowColor="#CB000000"
         android:text="@string/knapp_nej"
-
         android:typeface="serif" />
-
-
 </RelativeLayout>
