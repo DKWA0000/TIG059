@@ -9,4 +9,5 @@
         android:id="@+id/product_list"
         tools:ignore="MissingConstraints">
     </ListView>
+
 </RelativeLayout>
