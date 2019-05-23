@@ -214,6 +214,7 @@ public class SystemetActivity extends AppCompatActivity {
                 addToMap(arguments, MAX_ALCO, valueFromView(viewInflated, R.id.max_alco_input));
                 addToMap(arguments, MIN_PRICE, valueFromView(viewInflated, R.id.min_price_input));
                 addToMap(arguments, MAX_PRICE, valueFromView(viewInflated, R.id.max_price_input));
+                addToMap(arguments, NAME, valueFromView(viewInflated, R.id.name_input));
 
                 // Given the map, s earch for products and update the listview
                 searchProducts(arguments);
@@ -229,7 +230,7 @@ public class SystemetActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void searchProducts(Map<String, String> arguments) {
+    private void searchProducts(final Map<String, String> arguments) {
         // empty search string will give a lot of products :)
         String argumentString = "";
 
@@ -249,6 +250,7 @@ public class SystemetActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "http://rameau.sandklef.com:9090/search/products/all/" + argumentString;
         Log.d(LOG_TAG, "Searching using url: " + url);
+        final String finalArgumentString = argumentString;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 url,
@@ -266,8 +268,26 @@ public class SystemetActivity extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d(LOG_TAG, " cause: " + error.getCause().getMessage());
+
+                try {
+
+                    String argumentString1 = finalArgumentString.replaceAll("^name=.*&",
+                            "Tuborg");
+                    Log.d(LOG_TAG, "searchstring = " + argumentString1);
+                    Log.d(LOG_TAG, " cause: " + error.getCause().getMessage());
+                }
+                catch(NullPointerException n){
+                    Log.d(LOG_TAG, "Tom sträng" + n.getMessage());
+                    Toast toast = Toast.makeText(getApplicationContext(),"sökningen matchar inga resultat",
+                            Toast.LENGTH_SHORT);
+                    toast.setMargin(50,50);
+                    toast.show();
+
+                    showSearchDialog();
+
+                }
             }
+
         });
 
         // Add the request to the RequestQueue.
